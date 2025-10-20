@@ -1,0 +1,16 @@
+{
+  "name": "artitrack",
+  "version": "1.0.0",
+  "description": "ARTiTrack application",
+  "scripts": {
+    "start": "cd backend && php artisan serve --host=0.0.0.0 --port=$PORT",
+    "build": "cd backend && composer install --no-dev && php artisan key:generate && php artisan storage:link"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite": "^5.0.0"
+  }
+}
