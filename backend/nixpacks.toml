@@ -1,0 +1,34 @@
+[phases.setup]
+  nixPkgs = [
+    'nodejs',
+    'php83',
+    'php83Extensions.composer',
+    'php83Extensions.curl',
+    'php83Extensions.mbstring',
+    'php83Extensions.xml',
+    'php83Extensions.zip',
+    'php83Extensions.gd',
+    'php83Extensions.mysql'
+  ]
+
+[phases.install]
+  cmds = ["composer install --no-dev"]
+
+[phases.build]
+  cmds = [
+    "php artisan key:generate",
+    "php artisan storage:link"
+  ]
+
+[phases.start]
+  cmd = "php artisan serve --host=0.0.0.0 --port=$PORT"
+
+[phases.setup-php]
+  version = "8.3"
+  extensions = [
+    "gd",
+    "mysql",
+    "mbstring",
+    "xml",
+    "zip"
+  ]
